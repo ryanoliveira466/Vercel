@@ -1,0 +1,109 @@
+/* Estilo do formulário principal */
+form {
+    max-width: 600px; /* Limita a largura máxima do formulário a 600px */
+    margin: 2rem auto; /* Cria espaçamento externo (2rem) e centraliza horizontalmente com 'auto' */
+    padding: 2.5rem; /* Espaço interno dentro do formulário */
+    border-radius: 16px; /* Arredonda os cantos do formulário */
+    background: rgba(255, 255, 255, 0.479); /* Cor de fundo branca */
+    display: grid; /* Usa layout de grid para organizar os campos */
+    gap: 1.5rem; /* Espaço entre os campos */
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* Fonte moderna e legível */
+    border: 2px solid blue; /* Borda cinza clara */
+  }
+  
+  /* Estilo para os campos de texto e área de texto */
+  form input,
+  form textarea {
+    width: 100%; /* Ocupa toda a largura disponível */
+    padding: 1rem; /* Espaço interno dentro do campo */
+    border: 1px solid #7c7c7c; /* Borda cinza clara */
+    border-radius: 10px; /* Cantos arredondados */
+    font-size: 1rem; /* Tamanho do texto padrão */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animações suaves ao interagir */
+    background-color: #f8f9fa; /* Fundo cinza claro */
+    color: #495057; /* Cor do texto */
+  }
+  
+  /* Quando o campo recebe foco (usuário clica para digitar) */
+  form input:focus,
+  form textarea:focus {
+    outline: none; /* Remove a borda azul padrão do navegador */
+    border-color: blue; /* Muda a cor da borda para azul claro */
+    box-shadow: 0 0 0 4px rgba(77, 171, 247, 0.2); /* Cria um anel azul claro ao redor */
+    background-color: white; /* Muda o fundo para branco */
+  }
+  
+  /* Área de texto com altura mínima e ajuste de altura permitido */
+  form textarea {
+    min-height: 120px; /* Altura mínima da caixa de texto */
+    resize: vertical; /* Permite o redimensionamento apenas na altura */
+    line-height: 1.5; /* Espaçamento entre as linhas do texto */
+  }
+  
+  /* Estilo do botão de envio */
+  form button {
+    background: #1970c200; /* Fundo azul */
+    color: rgb(139, 138, 138); /* Texto branco */
+    border: none; /* Remove borda padrão */
+    padding: 1rem; /* Espaço interno */
+    border-radius: 10px; /* Cantos arredondados */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: 600; /* Peso da fonte (mais grosso) */
+    cursor: pointer; /* Muda o cursor para "mãozinha" */
+    transition: all 0.3s ease; /* Animação suave em interações */
+    margin-top: 0.5rem; /* Espaço acima do botão */
+    text-transform: uppercase; /* Texto em maiúsculas */
+    letter-spacing: 0.5px; /* Espaçamento entre letras */
+    display: flex; /* Usa flexbox para alinhar itens internos */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 8px; /* Espaço entre ícones e texto (caso tenha) */
+    border: 0.5px solid #7c7c7c; /* Borda cinza clara */
+  }
+  
+  /* Efeito ao passar o mouse no botão */
+  form button:hover {
+    background: blue; /* Fundo azul */
+    color: white;
+  }
+  
+  /* Efeito ao clicar no botão */
+  form button:active {
+    background: blue; /* Fundo azul */
+    color: white;
+  }
+  
+  /* Estilo dos textos de ajuda (placeholder) dentro dos campos */
+  form input::placeholder,
+  form textarea::placeholder {
+    color: #adb5bd; /* Cor cinza clara */
+    opacity: 1; /* Garante visibilidade total */
+  }
+  
+  /* Remove setinhas dos campos numéricos (padrão do navegador) */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Remove estilo padrão do WebKit */
+    margin: 0; /* Remove margens */
+  }
+  
+  /* Responsividade: telas menores que 640px */
+  @media (max-width: 640px) {
+    form {
+      padding: 1.5rem; /* Reduz o preenchimento interno */
+      margin: 1rem; /* Reduz a margem externa */
+    }
+  }
+  
+  /* Animação de carregamento simples (pulsando) */
+  @keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+  }
+  
+  /* Classe para aplicar efeito de loading */
+  .loading {
+    animation: pulse 1.5s infinite; /* Aplica animação indefinidamente */
+    pointer-events: none; /* Desativa cliques enquanto carrega */
+  }

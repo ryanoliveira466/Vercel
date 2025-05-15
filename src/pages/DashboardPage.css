@@ -1,0 +1,174 @@
+/* Container principal do dashboard */
+.dashboard-container {
+  max-width: 1200px;                /* Define a largura máxima do container */
+  margin: 0 auto;                   /* Centraliza o container horizontalmente */
+  padding: 2rem;                    /* Espaçamento interno (garras) */
+  display: grid;                    /* Usa Grid Layout para distribuir os itens */
+  grid-template-columns: 1fr;       /* Cria uma única coluna */
+  gap: 2rem;                        /* Espaçamento entre os itens no grid */
+  min-height: 100vh;                 /* Garantia de que o container tenha altura mínima de 100% da tela */
+}
+
+/* Estilos para o cabeçalho do dashboard */
+.dashboard-header {
+  text-align: center;               /* Centraliza o texto do cabeçalho */
+  margin-bottom: 1.5rem;            /* Espaçamento abaixo do cabeçalho */
+}
+
+/* Título dentro do cabeçalho */
+.dashboard-header h1 {
+  font-size: 2.5rem;                /* Tamanho da fonte do título */
+  color: #1971c2;                   /* Cor do texto (azul) */
+  margin-bottom: 0.5rem;            /* Espaço abaixo do título */
+  font-weight: 700;                 /* Define a espessura da fonte (negrito) */
+  background: linear-gradient(to right, #1971c2, #4dabf7); /* Gradiente de fundo do texto */
+  -webkit-background-clip: text;    /* Aplica o gradiente ao texto, compatível com Webkit (Chrome, Safari) */
+  background-clip: text;            /* Aplica o gradiente ao texto (comportamento padrão) */
+  color: transparent;               /* Torna o texto transparente para que o gradiente seja visível */
+  display: inline-block;            /* Faz o texto ocupar apenas o espaço necessário */
+}
+
+/* Subtítulo ou descrição no cabeçalho */
+.dashboard-header p {
+  color: #495057;                   /* Cor do texto do parágrafo (cinza escuro) */
+  font-size: 1.1rem;                /* Tamanho da fonte do parágrafo */
+  max-width: 700px;                 /* Largura máxima do parágrafo */
+  margin: 0 auto;                   /* Centraliza o parágrafo */
+}
+
+/* Estilos para a grid que organiza as seções do dashboard */
+.dashboard-grid {
+  display: grid;                    /* Usando Grid Layout para as seções */
+  grid-template-columns: 1fr;       /* Inicialmente uma única coluna */
+  gap: 2rem;                        /* Espaçamento entre as seções */
+}
+
+/* Cada seção dentro do dashboard */
+.dashboard-section {
+  background: white;                /* Fundo branco para cada seção */
+  border-radius: 16px;               /* Bordas arredondadas */
+  padding: 2rem;                     /* Espaçamento interno da seção */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra sutil em torno das seções */
+}
+
+/* Título das seções */
+.section-title {
+  font-size: 1.5rem;                 /* Tamanho da fonte do título da seção */
+  color: #343a40;                    /* Cor escura para o título */
+  margin-bottom: 1.5rem;             /* Espaço abaixo do título */
+  padding-bottom: 0.75rem;           /* Espaçamento abaixo do título */
+  border-bottom: 2px solid #f1f3f5;  /* Linha fina abaixo do título */
+  display: flex;                     /* Usando flexbox para alinhar o título e o ícone */
+  align-items: center;               /* Alinha verticalmente o título com o ícone */
+  gap: 0.75rem;                      /* Espaçamento entre o título e o ícone */
+}
+
+/* Tamanho do ícone dentro do título da seção */
+.section-title svg {
+  width: 24px;                       /* Largura do ícone */
+  height: 24px;                      /* Altura do ícone */
+}
+
+/* Estilos para os cards de estatísticas dos pacientes */
+.patients-stats {
+  display: grid;                    /* Usando Grid Layout para organizar os cards */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo: cria colunas ajustáveis */
+  gap: 1.5rem;                        /* Espaçamento entre os cards */
+  margin-bottom: 2rem;                /* Espaço abaixo da área de estatísticas */
+}
+
+/* Título para cada card de estatística */
+h1 {
+  text-align: center;               /* Centraliza o texto */
+}
+
+/* Estilo individual para cada card de estatística */
+.stat-card {
+  background: white;                /* Fundo branco */
+  border-radius: 12px;               /* Bordas arredondadas */
+  padding: 1.5rem;                   /* Espaçamento interno */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+  display: flex;                     /* Flexbox para alinhar conteúdo dentro do card */
+  flex-direction: column;            /* Organiza os itens na coluna */
+  align-items: center;               /* Alinha os itens horizontalmente no centro */
+  text-align: center;                /* Centraliza o texto */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição suave para hover */
+}
+
+/* Efeito de hover nos cards de estatística */
+.stat-card:hover {
+  transform: translateY(-5px);       /* Move o card para cima */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Aumenta a sombra ao passar o mouse */
+}
+
+/* Valor dentro de cada card de estatística */
+.stat-value {
+  font-size: 2.5rem;                 /* Tamanho grande para o valor */
+  font-weight: 700;                  /* Negrito para o valor */
+  color: #1971c2;                    /* Cor azul */
+  margin-bottom: 0.5rem;             /* Espaço abaixo do valor */
+}
+
+/* Rótulo dentro de cada card de estatística */
+.stat-label {
+  font-size: 1rem;                   /* Tamanho da fonte do rótulo */
+  color: #868e96;                    /* Cor cinza claro */
+  font-weight: 500;                  /* Peso da fonte normal */
+}
+
+/* Responsividade - quando a tela tem largura maior que 992px */
+@media (min-width: 992px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;  /* Exibe duas colunas no grid */
+  }
+}
+
+/* Responsividade - quando a tela tem largura de até 768px */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1.5rem;                 /* Reduz o padding no container */
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;                 /* Reduz o tamanho do título no cabeçalho */
+  }
+  
+  .section-title {
+    font-size: 1.3rem;               /* Reduz o tamanho da fonte do título das seções */
+  }
+  
+  .patients-stats {
+    grid-template-columns: 1fr 1fr;  /* Exibe duas colunas de cards */
+  }
+}
+
+/* Responsividade - quando a tela tem largura de até 480px */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 1rem;                   /* Reduz o padding no container */
+  }
+  
+  .patients-stats {
+    grid-template-columns: 1fr;      /* Exibe uma coluna de cards */
+  }
+  
+  .dashboard-section {
+    padding: 1.5rem;                 /* Reduz o padding nas seções */
+  }
+}
+
+/* Animação de entrada nas seções */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); } /* Inicia com opacidade 0 e um pequeno deslocamento vertical */
+  to { opacity: 1; transform: translateY(0); }      /* Finaliza com opacidade 1 e posição original */
+}
+
+/* Aplica a animação nas seções */
+.dashboard-section {
+  animation: fadeIn 0.5s ease-out forwards; /* Animação para as seções (1) */
+}
+
+/* Animação com delay para a segunda seção */
+.dashboard-section:nth-child(2) {
+  animation-delay: 0.2s; /* Atraso de 0.2 segundos na animação da segunda seção */
+}

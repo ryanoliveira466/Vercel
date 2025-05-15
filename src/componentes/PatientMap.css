@@ -1,0 +1,139 @@
+/* Container principal do mapa */
+.patient-map-container {
+    height: 900px; /* Altura fixa do mapa */
+    width: 100vw; /* Largura total da janela (viewport) */
+    border-radius: 16px; /* Cantos arredondados */
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse o container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+    margin: 2rem 0; /* Espaçamento vertical acima e abaixo do mapa */
+    position: relative; /* Permite posicionar elementos filhos com posição absoluta */
+  }
+  
+  /* Estilo da área onde o Leaflet renderiza o mapa */
+  .leaflet-container {
+    height: 100%; /* Ocupa toda a altura do container pai */
+    width: 100%; /* Ocupa toda a largura do container pai */
+    background: #f8f9fa; /* Fundo cinza claro como fallback (antes de carregar o mapa) */
+  }
+  
+  /* Estilo dos ícones de marcadores no mapa */
+  .leaflet-marker-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* Sombra nos marcadores */
+    transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
+  }
+  
+  /* Efeito visual ao passar o mouse sobre o marcador */
+  .leaflet-marker-icon:hover {
+    transform: scale(1.2) translateY(-5px); /* Aumenta e levanta o marcador */
+  }
+  
+  /* Posicionamento dos popups (caixas de informação que aparecem ao clicar) */
+  .leaflet-popup {
+    bottom: 12px !important; /* Corrige a posição do popup */
+  }
+  
+  /* Caixa que envolve o conteúdo do popup */
+  .leaflet-popup-content-wrapper {
+    border-radius: 12px; /* Arredonda os cantos */
+    padding: 0; /* Remove espaço interno */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra leve */
+    border: 1px solid #e9ecef; /* Borda fina cinza clara */
+    overflow: hidden; /* Evita conteúdo sair da caixa */
+  }
+  
+  /* Área de conteúdo interna do popup */
+  .leaflet-popup-content {
+    margin: 0; /* Remove margens */
+    width: 250px !important; /* Define largura fixa da caixa */
+  }
+  
+  /* Parágrafos dentro do popup */
+  .leaflet-popup-content p {
+    margin: 0;
+    padding: 0.75rem; /* Espaço interno dos parágrafos */
+  }
+  
+  /* Títulos ou textos destacados dentro do popup */
+  .leaflet-popup-content strong {
+    display: block; /* Mostra como bloco (quebra linha) */
+    padding: 0.75rem;
+    background-color: #1971c2; /* Azul escuro */
+    color: white;
+    font-size: 1.1rem;
+  }
+  
+  /* Estilo alternativo para strong após quebra de linha */
+  .leaflet-popup-content br + strong {
+    background-color: transparent; /* Remove fundo azul */
+    color: inherit; /* Usa a cor do texto padrão */
+    padding-top: 0;
+  }
+  
+  /* Estilo dos controles de zoom e navegação do mapa */
+  .leaflet-control {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important; /* Sombra suave */
+  }
+  
+  /* Botões da barra de controle (zoom + / -) */
+  .leaflet-bar a {
+    width: 36px;
+    height: 36px;
+    line-height: 36px; /* Alinha o ícone verticalmente */
+    border-bottom: 1px solid #e9ecef !important; /* Linha de separação entre os botões */
+  }
+  
+  /* Efeito ao passar o mouse sobre os botões */
+  .leaflet-bar a:hover {
+    background-color: #f8f9fa !important; /* Muda o fundo no hover */
+  }
+  
+  /* Estilo específico para o botão de localização (se utilizado) */
+  .leaflet-control-locate {
+    border-radius: 8px !important;
+  }
+  
+  /* Responsividade: telas menores (celulares e tablets) */
+  @media (max-width: 768px) {
+    .patient-map-container {
+      height: 400px; /* Reduz a altura do mapa */
+      border-radius: 0; /* Remove arredondamento para economizar espaço */
+      margin: 1rem -1rem; /* Aumenta a largura horizontalmente */
+      width: calc(100% + 2rem); /* Garante que ocupe toda a largura visível */
+    }
+  }
+  
+  /* Tela de carregamento por cima do mapa (usado se o mapa demora para aparecer) */
+  .map-loading {
+    position: absolute; /* Fica por cima do mapa */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Fica acima de todos os outros elementos */
+    border-radius: 16px;
+  }
+  
+  /* Ícone girando para indicar carregamento */
+  .map-loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3; /* Parte clara do círculo */
+    border-top: 4px solid #1971c2; /* Parte azul que gira */
+    border-radius: 50%; /* Forma circular */
+    animation: spin 1s linear infinite; /* Gira continuamente */
+  }
+  
+  /* Definição da animação de rotação */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
